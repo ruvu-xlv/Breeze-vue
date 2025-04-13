@@ -9,8 +9,22 @@ import { Link } from "@inertiajs/vue3";
 import DashboardSideNav from "@/Components/DashboardSideNav.vue";
 import DashboardNavBar from "@/Components/DashboardNavBar.vue";
 import DashboardConfig from "@/Components/DashboardConfig.vue";
+import ArgonSwitchButton from "@/Components/ArgonSwitchButton.vue";
 
-const showingNavigationDropdown = ref(false);
+// const showingNavigationDropdown = ref(false);
+
+
+const isDashboardConfigActive = ref(false)
+const handleToggleDashboardConfig = () => {
+    isDashboardConfigActive.value = !isDashboardConfigActive.value
+}
+
+// dark mode
+import { useDark, useToggle } from '@vueuse/core'
+
+const isDark = useDark()
+const toggleDark = useToggle(isDark)
+
 </script>
 
 <template>
@@ -24,5 +38,9 @@ const showingNavigationDropdown = ref(false);
         <DashboardNavBar />
         <slot />
     </main>
-    <DashboardConfig />
+    <DashboardConfig :isDashboardConfigActive @dashboardConfigTrigger="handleToggleDashboardConfig">
+        <template #darkmode>
+            <ArgonSwitchButton name="darkmode" v-model:checked="isDark" />
+        </template>
+    </DashboardConfig>
 </template>
