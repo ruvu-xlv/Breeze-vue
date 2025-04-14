@@ -47,7 +47,7 @@ const DashboardConfigClasses = computed(() =>
             />
             <div class="flex-auto p-6 pt-0 overflow-auto sm:pt-4">
                 <!-- Sidebar Backgrounds -->
-                <div>
+                <!-- <div>
                     <h6 class="mb-0 dark:text-white">Sidebar Colors</h6>
                 </div>
                 <a href="javascript:void(0)">
@@ -84,17 +84,17 @@ const DashboardConfigClasses = computed(() =>
                             onclick="sidebarColor(this)"
                         ></span>
                     </div>
-                </a>
+                </a> -->
                 <!-- Sidenav Type -->
-                <div class="mt-4">
+                <!-- <div class="mt-4">
                     <h6 class="mb-0 dark:text-white">Sidenav Type</h6>
                     <p
                         class="text-sm leading-normal dark:text-white dark:opacity-80"
                     >
                         Choose between 2 different sidenav types.
                     </p>
-                </div>
-                <div class="flex">
+                </div> -->
+                <!-- <div class="flex">
                     <button
                         transparent-style-btn
                         class="inline-block w-full px-4 py-2.5 mb-2 font-bold leading-normal text-center text-white capitalize align-middle transition-all bg-blue-500 border border-transparent border-solid rounded-lg cursor-pointer text-sm xl-max:cursor-not-allowed xl-max:opacity-65 xl-max:pointer-events-none xl-max:bg-gradient-to-tl xl-max:from-blue-500 xl-max:to-violet-500 xl-max:text-white xl-max:border-0 hover:-translate-y-px dark:cursor-not-allowed dark:opacity-65 dark:pointer-events-none dark:bg-gradient-to-tl dark:from-blue-500 dark:to-violet-500 dark:text-white dark:border-0 hover:shadow-xs active:opacity-85 ease-in tracking-tight-rem shadow-md bg-150 bg-x-25 bg-gradient-to-tl from-blue-500 to-violet-500 hover:border-blue-500"
@@ -110,14 +110,14 @@ const DashboardConfigClasses = computed(() =>
                     >
                         Dark
                     </button>
-                </div>
+                </div> -->
                 <p
                     class="block mt-2 text-sm leading-normal dark:text-white dark:opacity-80 xl:hidden"
                 >
                     You can change the sidenav type just on desktop view.
                 </p>
                 <!-- Navbar Fixed -->
-                <div class="flex my-4">
+                <!-- <div class="flex my-4">
                     <h6 class="mb-0 dark:text-white">Navbar Fixed</h6>
                     <div class="block pl-0 ml-auto min-h-6">
                         <input
@@ -126,7 +126,7 @@ const DashboardConfigClasses = computed(() =>
                             type="checkbox"
                         />
                     </div>
-                </div>
+                </div> -->
                 <hr
                     class="h-px my-6 bg-transparent bg-gradient-to-r from-transparent via-black/40 to-transparent dark:bg-gradient-to-r dark:from-transparent dark:via-white dark:to-transparent"
                 />
@@ -136,7 +136,7 @@ const DashboardConfigClasses = computed(() =>
                       <slot name="darkmode" />
                     </div>
                 </div>
-                <a
+                <!-- <a
                     target="_blank"
                     class="dark:border dark:border-solid dark:border-white inline-block w-full px-6 py-2.5 mb-4 font-bold leading-normal text-center text-white align-middle transition-all bg-transparent border border-solid border-transparent rounded-lg cursor-pointer text-sm ease-in hover:shadow-xs hover:-translate-y-px active:opacity-85 tracking-tight-rem shadow-md bg-150 bg-x-25 bg-gradient-to-tl from-zinc-800 to-zinc-700 dark:bg-gradient-to-tl dark:from-slate-750 dark:to-gray-850"
                     href="https://www.creative-tim.com/product/argon-dashboard-tailwind"
@@ -147,8 +147,8 @@ const DashboardConfigClasses = computed(() =>
                     class="dark:border dark:border-solid dark:border-white dark:text-white inline-block w-full px-6 py-2.5 mb-4 font-bold leading-normal text-center align-middle transition-all bg-transparent border border-solid rounded-lg shadow-none cursor-pointer active:shadow-xs hover:-translate-y-px active:opacity-85 text-sm ease-in tracking-tight-rem bg-150 bg-x-25 border-slate-700 text-slate-700 hover:bg-transparent hover:text-slate-700 hover:shadow-none active:bg-slate-700 active:text-white active:hover:bg-transparent active:hover:text-slate-700 active:hover:shadow-none"
                     href="https://www.creative-tim.com/learning-lab/tailwind/html/quick-start/argon-dashboard/"
                     >View documentation</a
-                >
-                <div class="w-full text-center">
+                > -->
+                <!-- <div class="w-full text-center">
                     <a
                         class="github-button"
                         href="https://github.com/creativetimofficial/argon-dashboard-tailwind"
@@ -173,7 +173,7 @@ const DashboardConfigClasses = computed(() =>
                     >
                         <i class="mr-1 fab fa-facebook-square"></i> Share
                     </a>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
