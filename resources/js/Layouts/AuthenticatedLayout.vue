@@ -21,26 +21,42 @@ const handleToggleDashboardConfig = () => {
 
 // dark mode
 import { useDark, useToggle } from '@vueuse/core'
+import DashboardFooter from "@/Components/DashboardFooter.vue";
 
 const isDark = useDark()
 const toggleDark = useToggle(isDark)
 
 </script>
-
 <template>
-    <div class="absolute w-full bg-blue-500 dark:hidden min-h-75"></div>
-    <DashboardSideNav />
-
-    <!-- Page Content -->
-    <main
-        class="relative h-full max-h-screen transition-all duration-200 ease-in-out xl:ml-68 rounded-xl"
-    >
-        <DashboardNavBar/>
+    <!-- Wrapper utama harus flex-column & min-h-screen -->
+    <div class="flex flex-col min-h-screen bg-gray-100 dark:bg-gray-900">
+  
+      <!-- Background biru atas -->
+      <div class="absolute w-full bg-blue-500 dark:hidden min-h-75 z-0"></div>
+  
+      <!-- Sidebar -->
+      <DashboardSideNav />
+  
+      <!-- Konten Utama -->
+      <main
+        class="flex-grow relative transition-all duration-200 ease-in-out xl:ml-68 rounded-xl z-10"
+      >
+        <DashboardNavBar />
         <slot />
-    </main>
-    <DashboardConfig :isDashboardConfigActive @dashboardConfigTrigger="handleToggleDashboardConfig">
+      </main>
+  
+      <!-- Footer -->
+      <DashboardFooter />
+  
+      <!-- Panel Konfigurasi -->
+      <DashboardConfig
+        :isDashboardConfigActive
+        @dashboardConfigTrigger="handleToggleDashboardConfig"
+      >
         <template #darkmode>
-            <ArgonSwitchButton name="darkmode" v-model:checked="isDark" />
+          <ArgonSwitchButton name="darkmode" v-model:checked="isDark" />
         </template>
-    </DashboardConfig>
-</template>
+      </DashboardConfig>
+    </div>
+  </template>
+  

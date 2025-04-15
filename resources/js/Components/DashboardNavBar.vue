@@ -92,7 +92,7 @@ const csrfToken = usePage().props.csrf_token;
             </div>
           </li>
 
-          <!-- <li class="flex items-center pl-4 xl:hidden">
+          <li class="flex items-center pl-4 xl:hidden">
                         <a
                             href="javascript:;"
                             class="block p-0 text-sm text-white transition-all ease-nav-brand"
@@ -110,7 +110,7 @@ const csrfToken = usePage().props.csrf_token;
                                 ></i>
                             </div>
                         </a>
-                    </li> -->
+                    </li>
           <!-- <li class="flex items-center px-4">
                         <a
                             href="javascript:;"
