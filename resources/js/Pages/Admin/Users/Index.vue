@@ -1,10 +1,15 @@
 <script setup>
+import { ref } from 'vue';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
+import Modal from '@/Components/Modal.vue';
+import CreateUserForm from './Partials/CreateUserForm.vue';
 import { Head } from '@inertiajs/vue3';
 
 const props = defineProps({
   users: Array
 });
+
+const showCreateModal = ref(false); 
 </script>
 
 <template>
@@ -17,9 +22,19 @@ const props = defineProps({
         Users
       </h2>
     </template>
-
     <div class="py-12">
       <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
+        <div class="flex justify-start mb-6">
+          <button @click="showCreateModal = true"
+            class="inline-flex items-center px-5 py-2.5 font-bold text-white bg-gradient-to-tr from-green-600 to-lime-500 rounded-lg shadow hover:shadow-md hover:-translate-y-0.5 transition-transform duration-150">
+            <i class="fas fa-plus mr-2"></i> Tambah User
+          </button>
+        </div>
+
+        <Modal :show="showCreateModal" @close="showCreateModal = false" maxWidth="lg">
+          <CreateUserForm @close="showCreateModal = false" />
+        </Modal>
+
         <div v-if="users.length">
           <ul class="flex flex-col pl-0 mb-0 rounded-lg">
             <li v-for="user in users" :key="user.id"

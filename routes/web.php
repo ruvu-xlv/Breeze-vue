@@ -33,6 +33,7 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
     // Route Manage Users
     Route::prefix('users')->name('users.')->group(function(){
         Route::get('/',[UsersController::class,'index'])->name('index');
+        Route::post('/',[UsersController::class,'store'])->name('store');
     });
 });
 

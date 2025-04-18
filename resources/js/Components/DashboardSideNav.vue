@@ -77,7 +77,7 @@ const isAdmin = user?.role === 'admin'; //Cek apakah yg login adalah admin
                             class="mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-2.5"
                         >
                             <i
-                                class="relative top-0 text-sm leading-normal text-blue-500  ni ni-single-02"
+                                class="relative top-0 text-sm leading-normal text-blue-500  fa fa-users"
                             ></i>
                         </div>
                         <span
