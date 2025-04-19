@@ -33,7 +33,10 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
     // Route Manage Users
     Route::prefix('users')->name('users.')->group(function(){
         Route::get('/',[UsersController::class,'index'])->name('index');
+        Route::get('/create',[UsersController::class,'create'])->name('create');
         Route::post('/',[UsersController::class,'store'])->name('store');
+        Route::post('/edit/{id}',[UsersController::class,'edit'])->name('edit');
+        Route::delete('/{id}',[UsersController::class,'destroy'])->name('destroy');
     });
 });
 

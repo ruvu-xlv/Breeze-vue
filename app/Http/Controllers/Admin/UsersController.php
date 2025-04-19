@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
@@ -10,26 +9,52 @@ use Inertia\Inertia;
 
 class UsersController extends Controller
 {
-    public function index(){
-        $users = User::all();  
+    // Display all users
+    public function index()
+    {
+        $users = User::all();
         return Inertia::render('Admin/Users/Index', ['users' => $users]);
     }
 
-    public function store(Request $request){
-        $validate=$request->validate([
-            'name'=>'required|string|max:255',
-            'email'=>'required|email|unique:users,email',
-            'password'=>'required|string|min:6',
-            'role'=>'required|in:admin,user',
+    // Show form to create a new user
+    public function create()
+    {
+        return Inertia::render('Admin/Users/Create');
+    }
+
+    // Store a new user in the database
+    public function store(Request $request)
+    {
+        // Validate the incoming request data
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|unique:users,email',
+            'password' => 'required|string|min:6',
+            'role' => 'required|in:admin,user',
         ]);
 
+        // Create the user and save to the database
         User::create([
-            'name'=>$validate['name'],
-            'email'=>$validate['email'],
-            'password' => Hash::make($validate['password']),
-            'role'=>$validate['role'],
+            'name' => $validated['name'],
+            'email' => $validated['email'],
+            'password' => Hash::make($validated['password']),
+            'role' => $validated['role'],
         ]);
 
-        return Inertia::render('Admin/Users/Index');
+        // Redirect back to the user list
+        return Inertia::location('/admin/users');  
+    }
+
+    // Delete a user
+    public function destroy($id)
+    {
+        // Find the user or fail if not found
+        $user = User::findOrFail($id);
+
+        // Delete the user
+        $user->delete();
+
+        // Redirect to the user list after deletion
+        return Inertia::location('/admin/users');  // Redirect after deletion
     }
 }
