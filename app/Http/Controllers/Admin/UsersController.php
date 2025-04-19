@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
@@ -42,8 +43,43 @@ class UsersController extends Controller
         ]);
 
         // Redirect back to the user list
-        return Inertia::location('/admin/users');  
+        return Inertia::location('/admin/users');
     }
+
+    public function edit($id)
+    {
+        $user = User::findOrFail($id);
+
+        return Inertia::render('Admin/Users/Edit', [
+            'user' => $user
+        ]);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $user = User::findOrFail($id);
+
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|unique:users,email,' . $user->id,
+            'password' => 'nullable|string|min:6',
+            'role' => 'required|in:admin,user',
+        ]);
+
+        $user->name = $validated['name'];
+        $user->email = $validated['email'];
+        $user->role = $validated['role'];
+
+        // password opsional
+        if (!empty($validated['password'])) {
+            $user->password = Hash::make($validated['password']);
+        }
+
+        $user->save();
+
+        return Inertia::location('/admin/users');
+    }
+
 
     // Delete a user
     public function destroy($id)
